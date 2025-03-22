@@ -48,8 +48,6 @@ Cân bằng tải là các công cụ có thể được sử dụng để quả
 ### 💡 Cải Thiện Hiệu Suất Trên Sao Chép PostgreSQL
 Hiệu suất luôn quan trọng trong bất kỳ hệ thống nào. Bạn sẽ cần tận dụng tốt các tài nguyên có sẵn để đảm bảo thời gian phản hồi tốt nhất có thể và có nhiều cách khác nhau để làm điều này. Mỗi kết nối đến cơ sở dữ liệu đều tiêu tốn tài nguyên nên một trong các cách để cải thiện hiệu suất trên cơ sở dữ liệu PostgreSQL của bạn là có một bộ quản lý kết nối tốt giữa ứng dụng và các máy chủ cơ sở dữ liệu của bạn.
 
-Cùng tham gia Group Telegram: [DevOps Learing](https://t.me/+izmvdOHL-vhhNGZl)
-
 ---
 Series PostgreSQL Replication:
 1. [PostgreSQL Replication - Tổng quan và cơ chế hoạt động](https://viblo.asia/p/postgresql-replication-tong-quan-va-co-che-hoat-dong-part-12-GAWVpyxo405)

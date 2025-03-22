@@ -10,10 +10,6 @@ Bài trước mình đã đi step-by-step các bước để triển khai Postgr
 Vì vậy bài này mình sẽ hướng dẫn sử dụng Github Action để triển khai trực tiếp lên Kubernetest nhé
 
 
-
-
-Cùng tham gia Group Telegram: [DevOps Learing](https://t.me/+izmvdOHL-vhhNGZl)
-
 ---
 Series PostgreSQL Replication:
 1. [PostgreSQL Replication - Tổng quan và cơ chế hoạt động](https://viblo.asia/p/postgresql-replication-tong-quan-va-co-che-hoat-dong-part-12-GAWVpyxo405)

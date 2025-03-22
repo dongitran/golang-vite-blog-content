@@ -477,9 +477,6 @@ Thì sẽ thấy data mình đã insert ở bên master nhé 🥰
 
 Như vậy là mình đã triển khai được postgresql replication gồm 1 master và 1 slave, bài sau chúng ta sẽ triển khai quá trình CI-CD sử dung Github Action để tự động hoá việc tạo/cập nhật database nhé 😃
 
-
-Cùng tham gia Group Telegram: [DevOps Learing](https://t.me/+izmvdOHL-vhhNGZl)
-
 ---
 Series PostgreSQL Replication:
 1. [PostgreSQL Replication - Tổng quan và cơ chế hoạt động](https://viblo.asia/p/postgresql-replication-tong-quan-va-co-che-hoat-dong-part-12-GAWVpyxo405)

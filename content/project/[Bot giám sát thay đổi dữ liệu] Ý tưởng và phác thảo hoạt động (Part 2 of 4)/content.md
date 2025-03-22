@@ -23,7 +23,4 @@ Mình suy nghĩ tại sao có những dữ liệu thường hay có 1 format nh�
 ![](https://images.viblo.asia/9d98d0bc-2152-43df-9dbe-410b10199716.png)
 
 
-
-  Cùng tham gia Group Telegram: [DevOps Learing](https://t.me/+izmvdOHL-vhhNGZl)
-
   ---
