@@ -1,0 +1,111 @@
+name: PostgreSQL Query
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  send-notification-started:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram Notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_GROUP_DEPLOYMENTS }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          disable_web_page_preview: true
+          message: |
+            *🚀 Blog Content Auto Deployment* 🏃‍♂️${{ github.run_number }}
+
+            *👤 Committer:* [${{ github.actor }}](https://github.com/${{ github.actor }})
+            *📝 Commit message:* ${{ github.event.commits[0].message }}
+            *📦 Repository:* ${{ github.repository }}
+            *🔍 See changes:* [View changes](https://github.com/${{ github.repository }}/commit/${{github.sha}})
+
+            Started 🚁️️️️️️🚁️️️️️️🚁️️️️️️🚁️️️️️️
+
+  create-database-and-table-and-insert-content:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install PostgreSQL client
+      run: |
+        sudo apt-get update
+        sudo apt-get install --yes postgresql-client
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run script to generate insert sql
+      run: |
+        chmod +x run.sh 
+        ./run.sh
+
+    - name: Create database if not exists
+      env:
+        PGPASSWORD: ${{ secrets.DB_PASSWORD }}
+      run: |
+        result=$(psql -h ${{ secrets.DB_HOST }} -d ${{ secrets.DB_NAME_DEFAULT }} -U ${{ secrets.DB_USERNAME }} -p ${{ secrets.DB_PORT }} -tAc "SELECT 'CREATE DATABASE blog' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'blog');")
+        if [ "$result" = "CREATE DATABASE blog" ]; then
+            echo Create database
+            psql -h ${{ secrets.DB_HOST }} -d ${{ secrets.DB_NAME_DEFAULT }} -U ${{ secrets.DB_USERNAME }} -p ${{ secrets.DB_PORT }} -c "CREATE DATABASE blog;"
+        fi
+
+
+    - name: Drop table if exists and recreate table
+      run: psql -h ${{ secrets.DB_HOST }} -d ${{ secrets.DB_NAME }} -U ${{ secrets.DB_USERNAME }} -p ${{ secrets.DB_PORT }} -f sql/create-table.sql
+      env:
+        PGPASSWORD: ${{ secrets.DB_PASSWORD }}
+
+    - name: Insert data into table
+      run: psql -h ${{ secrets.DB_HOST }} -d ${{ secrets.DB_NAME }} -U ${{ secrets.DB_USERNAME }} -p ${{ secrets.DB_PORT }} -f sql/insert.sql
+      env:
+        PGPASSWORD: ${{ secrets.DB_PASSWORD }}
+
+  send-notification-successful:
+    needs: create-database-and-table-and-insert-content
+    runs-on: ubuntu-latest
+    if: ${{ success() && needs.create-database-and-table-and-insert-content.result == 'success' }}
+    steps:
+      - name: Send Telegram Notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_GROUP_DEPLOYMENTS }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          disable_web_page_preview: true
+          message: |
+            *🎉 Blog Content Auto Deployment*  
+            
+            *👤 Committer:* [${{ github.actor }}](https://github.com/${{ github.actor }})
+            *📝 Commit message:* ${{ github.event.commits[0].message }}
+            *📦 Repository:* ${{ github.repository }}
+            *🔍 See changes:* [View changes](https://github.com/${{ github.repository }}/commit/${{github.sha}})
+
+            Deployment Successful
+            🚀️️️️️️🚀️️️️️️🚀️️️️️️🚀️️️️️️🚀️️️️️️🚀️️️️️️
+
+  send-notification-deploy-failed:
+    needs: create-database-and-table-and-insert-content
+    runs-on: ubuntu-latest
+    if: ${{ failure() && needs.create-database-and-table-and-insert-content.result == 'failure' }}
+    steps:
+      - name: Send Telegram Notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_GROUP_DEPLOYMENTS }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          disable_web_page_preview: true
+          message: |
+            *❌ Blog Content Auto Deployment*  
+            
+            *👤 Committer:* [${{ github.actor }}](https://github.com/${{ github.actor }})
+            *📝 Commit message:* ${{ github.event.commits[0].message }}
+            *📦 Repository:* ${{ github.repository }}
+            *🔍 See changes:* [View changes](https://github.com/${{ github.repository }}/commit/${{github.sha}})
+
+            Deployment Failed
+            😐️️️️️️😐️️️️️️😐️️️️️️😐️️️️️️😐️️️️️️😐️️️️️️

@@ -1,0 +1,9 @@
+{
+  "uuid": "feddbb89-f798-4111-953c-786f4cb55b0c",
+  "title": "[PostgreSQL Replication] Deploy lên Kubernetes (Part 2 of 3)",
+  "banner_image": "https://images.viblo.asia/3b5ca99a-b112-4e1e-8fc7-f288ff8a2bac.png",
+  "created_at": "2024-03-22T15:06:47.000Z",
+  "params": {
+    "tags": ["devops"]
+  }
+}

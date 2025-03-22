@@ -1,0 +1,9 @@
+{
+  "uuid": "feddbb89-f798-4111-953c-786f4cb55b0c",
+  "title": "[CI-CD] Đưa docker image lên Docker Hub sử dụng github action",
+  "banner_image": "https://images.viblo.asia/54875791-4a1f-4c25-b250-094ab0b19968.png",
+  "created_at": "2024-02-11T13:32:51.000Z",
+  "params": {
+    "tags": ["devops"]
+  }
+}

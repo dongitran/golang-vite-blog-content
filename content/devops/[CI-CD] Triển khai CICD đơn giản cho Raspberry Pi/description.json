@@ -1,0 +1,9 @@
+{
+  "uuid": "feddbb89-f798-4111-953c-786f4cb55b0c",
+  "title": "[CI-CD] Triển khai CICD đơn giản cho Raspberry Pi",
+  "banner_image": "https://images.viblo.asia/5839052b-da0f-4a77-b0c9-55e0ced8fe4a.jpg",
+  "created_at": "2023-12-14T14:02:28.000Z",
+  "params": {
+    "tags": ["devops"]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "uuid": "feddbb89-f798-4111-953c-786f4cb55b0c",
+  "title": "[CI-CD] Triển khai Ứng dụng lên Kubernetes Engine của Google Cloud Platform",
+  "banner_image": "https://images.viblo.asia/16a556f7-feb1-4f3a-99fd-d963bc41f76c.png",
+  "created_at": "2023-11-29T11:40:24.000Z",
+  "params": {
+    "tags": ["devops"]
+  }
+}

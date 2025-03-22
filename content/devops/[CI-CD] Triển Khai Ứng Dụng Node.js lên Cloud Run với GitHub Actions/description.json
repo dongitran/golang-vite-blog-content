@@ -1,0 +1,9 @@
+{
+  "uuid": "feddbb89-f798-4111-953c-786f4cb55b0c",
+  "title": "[CI-CD] Triển Khai Ứng Dụng Node.js lên Cloud Run với GitHub Actions",
+  "banner_image": "https://images.viblo.asia/d3ba09c3-efc7-4a70-a028-afef4b0716b7.png",
+  "created_at": "2023-11-28T12:55:37.000Z",
+  "params": {
+    "tags": ["devops"]
+  }
+}

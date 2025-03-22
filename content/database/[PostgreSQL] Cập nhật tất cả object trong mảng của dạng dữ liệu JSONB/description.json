@@ -1,0 +1,9 @@
+{
+  "uuid": "feddbb89-f798-4111-953c-786f4cb55b0c",
+  "title": "[PostgreSQL] Cập nhật tất cả object trong mảng của dạng dữ liệu jsonb",
+  "banner_image": "https://images.viblo.asia/b1aa5c1b-3111-4f9a-afcf-e5fbbff9f7c0.png",
+  "created_at": "2023-06-03T18:33:22.012Z",
+  "params": {
+    "tags": ["database"]
+  }
+}

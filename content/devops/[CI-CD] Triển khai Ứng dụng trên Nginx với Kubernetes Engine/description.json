@@ -1,0 +1,9 @@
+{
+  "uuid": "feddbb89-f798-4111-953c-786f4cb55b0c",
+  "title": "[CI-CD] Triển khai Ứng dụng trên Nginx với Kubernetes Engine",
+  "banner_image": "https://images.viblo.asia/4c657dc8-7e00-47e2-bdcf-9326f6f79de4.jpg",
+  "created_at": "2023-12-05T18:06:31.000Z",
+  "params": {
+    "tags": ["devops"]
+  }
+}
